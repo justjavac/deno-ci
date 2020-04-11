@@ -21,9 +21,9 @@ const buddyProvider: IDetectProvider = {
       branch: isPr ? undefined : env.BUDDY_EXECUTION_BRANCH,
       pr,
       isPr,
-      slug: env.BUDDY_REPO_SLUG
+      slug: env.BUDDY_REPO_SLUG,
     };
-  }
+  },
 };
 
 export default buddyProvider;

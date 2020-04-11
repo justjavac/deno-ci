@@ -1,6 +1,6 @@
 // https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#environment-variables
 
-import { readJsonSync } from "../deps.ts";
+import { readJsonSync } from "https://deno.land/std/fs/read_json.ts";
 
 import IDetectProvider from "../detectProvider.ts";
 
@@ -21,9 +21,9 @@ type GitHubEvent = {
 
 function getPrEvent(env: {
   [index: string]: string;
-}): { branch: string; pr: string } {
+}): { branch?: string; pr?: string } {
   try {
-    const event: GitHubEvent = env.GITHUB_EVENT_PATH
+    const event = env.GITHUB_EVENT_PATH
       ? (readJsonSync(env.GITHUB_EVENT_PATH) as GitHubEvent)
       : undefined;
 
@@ -32,7 +32,7 @@ function getPrEvent(env: {
         branch: event.pull_request.base
           ? parseBranch(event.pull_request.base.ref)
           : undefined,
-        pr: event.pull_request.number
+        pr: event.pull_request.number,
       };
     }
   } catch {}
@@ -46,8 +46,8 @@ const githubProvider: IDetectProvider = {
   },
 
   configuration(env) {
-    const isPr: boolean = env.GITHUB_EVENT_NAME === "pull_request";
-    const branch: string = parseBranch(env.GITHUB_REF);
+    const isPr = env.GITHUB_EVENT_NAME === "pull_request";
+    const branch = parseBranch(env.GITHUB_REF);
 
     return {
       name: "GitHub Actions",
@@ -58,9 +58,9 @@ const githubProvider: IDetectProvider = {
       prBranch: isPr ? branch : undefined,
       slug: env.GITHUB_REPOSITORY,
       root: env.GITHUB_WORKSPACE,
-      ...(isPr ? getPrEvent(env) : undefined)
+      ...(isPr ? getPrEvent(env) : undefined),
     };
-  }
+  },
 };
 
 export default githubProvider;

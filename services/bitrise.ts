@@ -8,10 +8,9 @@ const bitriseProvider: IDetectProvider = {
   },
 
   configuration(env: { [index: string]: string }) {
-    const pr: string =
-      env.BITRISE_PULL_REQUEST === "false"
-        ? undefined
-        : env.BITRISE_PULL_REQUEST;
+    const pr = env.BITRISE_PULL_REQUEST === "false"
+      ? undefined
+      : env.BITRISE_PULL_REQUEST;
     const isPr: boolean = Boolean(pr);
 
     return {
@@ -25,9 +24,9 @@ const bitriseProvider: IDetectProvider = {
       pr,
       isPr,
       prBranch: isPr ? env.BITRISE_GIT_BRANCH : undefined,
-      slug: env.BITRISE_APP_SLUG
+      slug: env.BITRISE_APP_SLUG,
     };
-  }
+  },
 };
 
 export default bitriseProvider;

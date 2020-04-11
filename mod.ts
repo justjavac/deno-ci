@@ -48,11 +48,11 @@ const services: { [index: string]: IDetectProvider } = {
   //   teamcity,
   travis,
   vsts,
-  wercker
+  wercker,
 };
 
-let isCI: boolean = null;
-let info: Info = null;
+let isCI: boolean | null = null;
+let info: Info | null = null;
 
 for (const name of Object.keys(services)) {
   if (services[name].detect(env(), cwd())) {
@@ -69,5 +69,5 @@ if (isCI == null) {
 
 export default {
   isCI,
-  ...info
+  ...info,
 };

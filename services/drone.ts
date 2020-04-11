@@ -23,9 +23,9 @@ const droneProvider: IDetectProvider = {
       isPr,
       prBranch: isPr ? env.DRONE_SOURCE_BRANCH : undefined,
       slug: `${env.DRONE_REPO_OWNER}/${env.DRONE_REPO_NAME}`,
-      root: env.DRONE_WORKSPACE
+      root: env.DRONE_WORKSPACE,
     };
-  }
+  },
 };
 
 export default droneProvider;

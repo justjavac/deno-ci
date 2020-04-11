@@ -25,9 +25,9 @@ const cirrusProvider: IDetectProvider = {
       pr,
       isPr,
       slug: env.CIRRUS_REPO_FULL_NAME,
-      root: env.CIRRUS_WORKING_DIR
+      root: env.CIRRUS_WORKING_DIR,
     };
-  }
+  },
 };
 
 export default cirrusProvider;

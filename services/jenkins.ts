@@ -10,8 +10,7 @@ const jenkinsProvider: IDetectProvider = {
   configuration(env, cwd) {
     const pr = env.ghprbPullId || env.gitlabMergeRequestId || env.CHANGE_ID;
     const isPr = Boolean(pr);
-    const localBranch =
-      env.GIT_LOCAL_BRANCH ||
+    const localBranch = env.GIT_LOCAL_BRANCH ||
       env.GIT_BRANCH ||
       env.gitlabBranch ||
       env.BRANCH_NAME;
@@ -31,9 +30,9 @@ const jenkinsProvider: IDetectProvider = {
       isPr,
       prBranch: isPr
         ? env.ghprbSourceBranch || env.gitlabSourceBranch || localBranch
-        : undefined
+        : undefined,
     };
-  }
+  },
 };
 
 export default jenkinsProvider;

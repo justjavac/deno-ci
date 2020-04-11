@@ -10,11 +10,11 @@ const gitProvider: IDetectProvider = {
   configuration(env, cwd) {
     return {
       name: "unknown",
-      service: "unknown"
+      service: "unknown",
       // commit: head(env, cwd),
       // branch: branch(env, cwd)
     };
-  }
+  },
 };
 
 export default gitProvider;

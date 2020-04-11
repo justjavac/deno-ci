@@ -18,9 +18,9 @@ const gitlabProvider: IDetectProvider = {
       jobUrl: `${env.CI_PROJECT_URL}/-/jobs/${env.CI_JOB_ID}`,
       branch: env.CI_COMMIT_REF_NAME,
       slug: env.CI_PROJECT_PATH,
-      root: env.CI_PROJECT_DIR
+      root: env.CI_PROJECT_DIR,
     };
-  }
+  },
 };
 
 export default gitlabProvider;

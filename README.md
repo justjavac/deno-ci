@@ -2,7 +2,10 @@
 
 > Get details about the current Continuous Integration environment.
 
-[![Build Status](https://travis-ci.com/justjavac/deno-ci.svg?branch=master)](https://travis-ci.com/justjavac/deno-ci)
+[![tag](https://img.shields.io/github/release/denomod/deno-ci)](https://github.com/denomod/deno-ci/releases)
+[![Build Status](https://github.com/denomod/deno-ci/workflows/ci/badge.svg?branch=master)](https://github.com/denomod/deno-ci/actions)
+[![license](https://img.shields.io/github/license/denomod/deno-ci)](https://github.com/denomod/deno-ci/blob/master/LICENSE)
+[![](https://img.shields.io/badge/deno-v0.40.0-green.svg)](https://github.com/denoland/deno)
 
 Source code based on:
 

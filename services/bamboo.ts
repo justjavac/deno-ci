@@ -16,9 +16,9 @@ const bambooProvider: IDetectProvider = {
       buildUrl: env.bamboo_buildResultsUrl,
       branch: env.bamboo_planRepository_1_branchName,
       job: env.bamboo_buildKey,
-      root: env.bamboo_build_working_directory
+      root: env.bamboo_build_working_directory,
     };
-  }
+  },
 };
 
 export default bambooProvider;

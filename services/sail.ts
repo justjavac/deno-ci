@@ -18,9 +18,9 @@ const sailProvider: IDetectProvider = {
       pr,
       isPr,
       slug: `${env.SAIL_REPO_OWNER}/${env.SAIL_REPO_NAME}`,
-      root: env.SAIL_CLONE_DIR
+      root: env.SAIL_CLONE_DIR,
     };
-  }
+  },
 };
 
 export default sailProvider;

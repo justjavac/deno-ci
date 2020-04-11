@@ -15,12 +15,11 @@ const codebuildProvider: IDetectProvider = {
       // commit: head(env, cwd), // TODO
       // branch: branch(env, cwd),
       build: env.CODEBUILD_BUILD_ID,
-      buildUrl: `https://console.aws.amazon.com/codebuild/home?region=${
-        env.AWS_REGION
-      }#/builds/${env.CODEBUILD_BUILD_ID}/view/new`,
-      root: env.PWD
+      buildUrl:
+        `https://console.aws.amazon.com/codebuild/home?region=${env.AWS_REGION}#/builds/${env.CODEBUILD_BUILD_ID}/view/new`,
+      root: env.PWD,
     };
-  }
+  },
 };
 
 export default codebuildProvider;

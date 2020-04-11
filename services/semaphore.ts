@@ -22,9 +22,9 @@ const semaphoreProvider: IDetectProvider = {
       isPr,
       prBranch: isPr ? env.BRANCH_NAME : undefined,
       slug: env.SEMAPHORE_REPO_SLUG,
-      root: env.SEMAPHORE_PROJECT_DIR
+      root: env.SEMAPHORE_PROJECT_DIR,
     };
-  }
+  },
 };
 
 export default semaphoreProvider;

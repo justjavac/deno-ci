@@ -15,9 +15,9 @@ const werckerProvider: IDetectProvider = {
       buildUrl: env.WERCKER_RUN_URL,
       branch: env.WERCKER_GIT_BRANCH,
       slug: `${env.WERCKER_GIT_OWNER}/${env.WERCKER_GIT_REPOSITORY}`,
-      root: env.WERCKER_ROOT
+      root: env.WERCKER_ROOT,
     };
-  }
+  },
 };
 
 export default werckerProvider;

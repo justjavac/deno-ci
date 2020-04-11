@@ -21,9 +21,9 @@ const codefreshProvider: IDetectProvider = {
       isPr,
       prBranch: isPr ? env.CF_BRANCH : undefined,
       slug: `${env.CF_REPO_OWNER}/${env.CF_REPO_NAME}`,
-      root: env.CF_VOLUME_PATH
+      root: env.CF_VOLUME_PATH,
     };
-  }
+  },
 };
 
 export default codefreshProvider;

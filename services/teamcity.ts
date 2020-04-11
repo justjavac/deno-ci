@@ -8,7 +8,7 @@ import IDetectProvider from "../detectProvider.ts";
 
 const PROPERTIES_MAPPING = {
   root: "teamcity.build.workingDir",
-  branch: "teamcity.build.branch"
+  branch: "teamcity.build.branch",
 } as const;
 
 function safeReadProperties(filePath: string) {
@@ -23,7 +23,7 @@ function getProperties(
   env: {
     [index: string]: string;
   },
-  cwd?: string
+  cwd?: string,
 ) {
   const buildProperties = env.TEAMCITY_BUILD_PROPERTIES_FILE
     ? safeReadProperties(env.TEAMCITY_BUILD_PROPERTIES_FILE)
@@ -38,16 +38,15 @@ function getProperties(
   return Object.keys(PROPERTIES_MAPPING).reduce(
     (result, key) =>
       Object.assign(result, {
-        [key]:
-          (buildProperties
-            ? buildProperties.get(PROPERTIES_MAPPING[key])
-            : undefined) ||
+        [key]: (buildProperties
+          ? buildProperties.get(PROPERTIES_MAPPING[key])
+          : undefined) ||
           (configProperties
             ? configProperties.get(PROPERTIES_MAPPING[key])
             : undefined) ||
-          (key === "branch" ? branch(env, cwd) : undefined)
+          (key === "branch" ? branch(env, cwd) : undefined),
       }),
-    {}
+    {},
   );
 }
 
@@ -63,9 +62,9 @@ const teamcityProvider: IDetectProvider = {
       commit: env.BUILD_VCS_NUMBER,
       build: env.BUILD_NUMBER,
       slug: env.TEAMCITY_BUILDCONF_NAME,
-      ...getProperties(env, cwd)
+      ...getProperties(env, cwd),
     };
-  }
+  },
 };
 
 export default teamcityProvider;

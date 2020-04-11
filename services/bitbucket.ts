@@ -13,14 +13,13 @@ const bitbucketProvider: IDetectProvider = {
       commit: env.BITBUCKET_COMMIT,
       tag: env.BITBUCKET_TAG,
       build: env.BITBUCKET_BUILD_NUMBER,
-      buildUrl: `https://bitbucket.org/${
-        env.BITBUCKET_REPO_SLUG
-      }/addon/pipelines/home#!/results/${env.BITBUCKET_BUILD_NUMBER}`,
+      buildUrl:
+        `https://bitbucket.org/${env.BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/${env.BITBUCKET_BUILD_NUMBER}`,
       branch: env.BITBUCKET_BRANCH,
       slug: env.BITBUCKET_REPO_SLUG,
-      root: env.BITBUCKET_CLONE_DIR
+      root: env.BITBUCKET_CLONE_DIR,
     };
-  }
+  },
 };
 
 export default bitbucketProvider;

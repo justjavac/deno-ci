@@ -7,8 +7,9 @@ const travisProvider: IDetectProvider = {
     return Boolean(env.TRAVIS);
   },
   configuration(env) {
-    const pr =
-      env.TRAVIS_PULL_REQUEST === "false" ? undefined : env.TRAVIS_PULL_REQUEST;
+    const pr = env.TRAVIS_PULL_REQUEST === "false"
+      ? undefined
+      : env.TRAVIS_PULL_REQUEST;
     const isPr = Boolean(pr);
 
     return {
@@ -25,9 +26,9 @@ const travisProvider: IDetectProvider = {
       isPr,
       prBranch: env.TRAVIS_PULL_REQUEST_BRANCH,
       slug: env.TRAVIS_REPO_SLUG,
-      root: env.TRAVIS_BUILD_DIR
+      root: env.TRAVIS_BUILD_DIR,
     };
-  }
+  },
 };
 
 export default travisProvider;

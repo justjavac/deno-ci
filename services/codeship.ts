@@ -3,8 +3,8 @@
 import IDetectProvider from "../detectProvider.ts";
 
 const codeshipProvider: IDetectProvider = {
-  detect(env) {
-    return env.CI_NAME && env.CI_NAME === "codeship";
+  detect(env): boolean {
+    return env.CI_NAME != null && env.CI_NAME === "codeship";
   },
   configuration(env) {
     return {
@@ -14,9 +14,9 @@ const codeshipProvider: IDetectProvider = {
       buildUrl: env.CI_BUILD_URL,
       commit: env.CI_COMMIT_ID,
       branch: env.CI_BRANCH,
-      slug: env.CI_REPO_NAME
+      slug: env.CI_REPO_NAME,
     };
-  }
+  },
 };
 
 export default codeshipProvider;

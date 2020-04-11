@@ -7,10 +7,9 @@ const buildkiteProvider: IDetectProvider = {
     return Boolean(env.BUILDKITE);
   },
   configuration(env) {
-    const pr =
-      env.BUILDKITE_PULL_REQUEST === "false"
-        ? undefined
-        : env.BUILDKITE_PULL_REQUEST;
+    const pr = env.BUILDKITE_PULL_REQUEST === "false"
+      ? undefined
+      : env.BUILDKITE_PULL_REQUEST;
     const isPr = Boolean(pr);
 
     return {
@@ -27,9 +26,9 @@ const buildkiteProvider: IDetectProvider = {
       pr,
       isPr,
       prBranch: isPr ? env.BUILDKITE_BRANCH : undefined,
-      root: env.BUILDKITE_BUILD_CHECKOUT_PATH
+      root: env.BUILDKITE_BUILD_CHECKOUT_PATH,
     };
-  }
+  },
 };
 
 export default buildkiteProvider;

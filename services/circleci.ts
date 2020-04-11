@@ -8,8 +8,7 @@ const circleciProvider: IDetectProvider = {
     return Boolean(env.CIRCLECI);
   },
   configuration(env) {
-    const pr =
-      env.CIRCLE_PR_NUMBER ||
+    const pr = env.CIRCLE_PR_NUMBER ||
       prNumber(env.CIRCLE_PULL_REQUEST || env.CI_PULL_REQUEST);
     const isPr = Boolean(pr);
 
@@ -25,9 +24,9 @@ const circleciProvider: IDetectProvider = {
       pr,
       isPr,
       prBranch: isPr ? env.CIRCLE_BRANCH : undefined,
-      slug: `${env.CIRCLE_PROJECT_USERNAME}/${env.CIRCLE_PROJECT_REPONAME}`
+      slug: `${env.CIRCLE_PROJECT_USERNAME}/${env.CIRCLE_PROJECT_REPONAME}`,
     };
-  }
+  },
 };
 
 export default circleciProvider;

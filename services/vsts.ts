@@ -22,9 +22,9 @@ const vstsProvider: IDetectProvider = {
       pr,
       isPr,
       prBranch: isPr ? env.SYSTEM_PULLREQUEST_SOURCEBRANCH : undefined,
-      root: env.BUILD_REPOSITORY_LOCALPATH
+      root: env.BUILD_REPOSITORY_LOCALPATH,
     };
-  }
+  },
 };
 
 export default vstsProvider;

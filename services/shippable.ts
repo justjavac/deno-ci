@@ -23,9 +23,9 @@ const shippableProvider: IDetectProvider = {
       isPr,
       prBranch: isPr ? env.HEAD_BRANCH : undefined,
       slug: env.SHIPPABLE_REPO_SLUG,
-      root: env.SHIPPABLE_BUILD_DIR
+      root: env.SHIPPABLE_BUILD_DIR,
     };
-  }
+  },
 };
 
 export default shippableProvider;

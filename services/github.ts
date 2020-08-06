@@ -35,7 +35,9 @@ function getPrEvent(env: {
         pr: event.pull_request.number,
       };
     }
-  } catch {}
+  } catch {
+    return { pr: undefined, branch: undefined };
+  }
 
   return { pr: undefined, branch: undefined };
 }

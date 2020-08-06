@@ -53,18 +53,19 @@ const services: { [index: string]: IDetectProvider } = {
 
 let isCI: boolean | null = null;
 let info: Info | null = null;
+let envs = env.toObject();
 
 for (const name of Object.keys(services)) {
-  if (services[name].detect(env(), cwd())) {
+  if (services[name].detect(envs, cwd())) {
     isCI = true;
-    info = services[name].configuration(env(), cwd());
+    info = services[name].configuration(envs, cwd());
     break;
   }
 }
 
 if (isCI == null) {
-  isCI = git.detect(env());
-  info = git.configuration(env(), cwd());
+  isCI = git.detect(envs);
+  info = git.configuration(envs, cwd());
 }
 
 export default {

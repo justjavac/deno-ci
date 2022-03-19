@@ -197,4 +197,5 @@ property. However `prBranch` will be set.
 
 ### License
 
-deno-ci is released under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.
+deno-ci is released under the MIT License. See the bundled [LICENSE](./LICENSE)
+file for details.

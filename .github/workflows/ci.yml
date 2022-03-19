@@ -10,29 +10,16 @@ jobs:
       matrix:
         os: [macOS-latest, ubuntu-latest, windows-latest]
 
-    env:
-      GH_ACTIONS: true
-      DENO_BUILD_MODE: release
-      V8_BINARY: true
-
     steps:
       - uses: actions/checkout@v2
       - name: Setup Deno
-        uses: denolib/setup-deno@master
-        with:
-          deno-version: 1.3
-
-      - name: Cache Deno Generated Files
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/deno
-          key: ${{ runner.os }}-deno-cache-${{ hashFiles('**/mod.ts') }}
+        uses: denoland/setup-deno@v1
 
       - name: Format
         run: deno fmt --check
 
-      - name: Lint
-        run: deno lint --unstable
+      # - name: Lint
+      #   run: deno lint
 
       - name: Tests
-        run: deno test --unstable
+        run: deno test

@@ -5,7 +5,6 @@
 [![tag](https://img.shields.io/github/release/denomod/deno-ci)](https://github.com/denomod/deno-ci/releases)
 [![Build Status](https://github.com/denomod/deno-ci/workflows/ci/badge.svg?branch=master)](https://github.com/denomod/deno-ci/actions)
 [![license](https://img.shields.io/github/license/denomod/deno-ci)](https://github.com/denomod/deno-ci/blob/master/LICENSE)
-[![](https://img.shields.io/badge/deno-v0.40.0-green.svg)](https://github.com/denoland/deno)
 
 Source code based on:
 
@@ -22,12 +21,14 @@ if (ci.isCI) {
   console.log(`Building repo ${ci.slug} on ${ci.name} service`);
 
   if (ci.isPr) {
-    console.log(`Building Pull Request #${ci.pr} originating from branch ${ci.prBranch} and targeting branch ${ci.branch}`);
+    console.log(
+      `Building Pull Request #${ci.pr} originating from branch ${ci.prBranch} and targeting branch ${ci.branch}`,
+    );
   } else {
     console.log(`Building branch ${ci.branch}`);
   }
 
-  if (ci.service === 'travis') {
+  if (ci.service === "travis") {
     // Do something specific to Travis CI
   }
 }
@@ -36,7 +37,7 @@ if (ci.isCI) {
 ## Supported variables
 
 | Variable   | Description                                                                                            |
-|------------|--------------------------------------------------------------------------------------------------------|
+| ---------- | ------------------------------------------------------------------------------------------------------ |
 | `name`     | CI service Commercial name (e.g. `Travis CI`, `CircleCI`, `GitLab CI/CD`)                              |
 | `service`  | Standardized CI service name (e.g. `travis`, `circleci`, `gitlab`)                                     |
 | `isCi`     | `true` is running on a CI, `false` otherwise                                                           |
@@ -53,15 +54,19 @@ if (ci.isCI) {
 | `slug`     | The slug (in form: owner_name/repo_name) of the repository currently being built                       |
 | `root`     | The path to the directory where the repository is being built                                          |
 
-**Note**: Some variables can be detected only on certain CI services. See [Supported CI](#supported-ci).
+**Note**: Some variables can be detected only on certain CI services. See
+[Supported CI](#supported-ci).
 
-**Note**: The `pr` and `prBranch` properties are only available for builds triggered when a Pull Request is opened/updated and not on builds triggered by a push on a branch even if that branch happens to be the branch from which the Pull Request originated.
+**Note**: The `pr` and `prBranch` properties are only available for builds
+triggered when a Pull Request is opened/updated and not on builds triggered by a
+push on a branch even if that branch happens to be the branch from which the
+Pull Request originated.
 
 ## Supported CI
 
 | CI Service (`name`)                                                                                                                     |  `service`  |       `isCi`       |          `branch`           |      `commit`      |       `tag`        |      `build`       |     `buildUrl`     |       `job`        |      `jobUrl`      |        `isPr`         |         `pr`          |      `prBranch`       |       `slug`       |       `root`       |
-|-----------------------------------------------------------------------------------------------------------------------------------------|:-----------:|:------------------:|:---------------------------:|:------------------:|:------------------:|:------------------:|:------------------:|:------------------:|:------------------:|:---------------------:|:---------------------:|:---------------------:|:------------------:|:------------------:|
-| [AppVeyor]( https://www.appveyor.com/docs/environment-variables)                                                                        | `appveyor`  | :white_check_mark: |     :white_check_mark:      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |  :white_check_mark:   |  :white_check_mark:   |  :white_check_mark:   | :white_check_mark: | :white_check_mark: |
+| --------------------------------------------------------------------------------------------------------------------------------------- | :---------: | :----------------: | :-------------------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: | :-------------------: | :-------------------: | :-------------------: | :----------------: | :----------------: |
+| [AppVeyor](https://www.appveyor.com/docs/environment-variables)                                                                         | `appveyor`  | :white_check_mark: |     :white_check_mark:      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |  :white_check_mark:   |  :white_check_mark:   |  :white_check_mark:   | :white_check_mark: | :white_check_mark: |
 | [Bamboo](https://confluence.atlassian.com/bamboo/bamboo-variables-289277087.html)                                                       |  `bamboo`   | :white_check_mark: |     :white_check_mark:      | :white_check_mark: |        :x:         | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |          :x:          |          :x:          |          :x:          |        :x:         | :white_check_mark: |
 | [Bitbucket](https://confluence.atlassian.com/bitbucket/environment-variables-794502608.html)                                            | `bitbucket` | :white_check_mark: |     :white_check_mark:      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         |          :x:          |          :x:          |          :x:          | :white_check_mark: | :white_check_mark: |
 | [Bitrise](https://devcenter.bitrise.io/builds/available-environment-variables/#exposed-by-bitriseio)                                    |  `bitrise`  | :white_check_mark: |     :white_check_mark:      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |        :x:         |        :x:         |  :white_check_mark:   |  :white_check_mark:   |  :white_check_mark:   | :white_check_mark: |        :x:         |
@@ -86,9 +91,13 @@ if (ci.isCI) {
 
 :warning: See [Caveats](#caveats)
 
-**Note**: Unsupported properties will always be `undefined`. For example if a Ci services doesn't support triggering builds when a Pull Request is opened/updated, `isPr` will be `undefined`.
+**Note**: Unsupported properties will always be `undefined`. For example if a Ci
+services doesn't support triggering builds when a Pull Request is
+opened/updated, `isPr` will be `undefined`.
 
-**Note**: If none of the above CI services is detected, `commit` and `branch` are determined based on the local Git repository, and `isCi` is determined based on the `CI` environment variable.
+**Note**: If none of the above CI services is detected, `commit` and `branch`
+are determined based on the local Git repository, and `isCi` is determined based
+on the `CI` environment variable.
 
 ## API
 
@@ -100,17 +109,17 @@ Type: `Object`
 
 #### env
 
-Type: `Object`<br>
-Default: `process.env`
+Type: `Object`<br> Default: `process.env`
 
 The object to read environment variables from.
 
 #### cwd
 
-Type: `String`<br>
-Default: `process.cwd()`
+Type: `String`<br> Default: `process.cwd()`
 
-The current working directory in which to execute `git` commands used to determine the `commit` and `branch` [Result](#result) properties in case no [supported CI](#supported-ci) is detected.
+The current working directory in which to execute `git` commands used to
+determine the `commit` and `branch` [Result](#result) properties in case no
+[supported CI](#supported-ci) is detected.
 
 ### Result
 
@@ -122,37 +131,63 @@ Type: `Object`
 
 ### AWS CodeBuild
 
-AWS CodeBuild doesn't provide an environment variable to determine the current Git branch being built. In addition, it clones the repository in a [detached head state](https://git-scm.com/docs/git-checkout#_detached_head) so the branch cannot be determined with `git rev-parse --abbrev-ref HEAD`.
-To work around this limitation, `env-ci` look for the remote branches having the same `HEAD` as the local detached `HEAD` to determine the branch from which the detached `HEAD` was created.
-In the rare case where there is multiple remote branches with the same `HEAD` as the local detached `HEAD`, `env-ci` will arbitrarily pick the first one. This can lead to an inaccurate `branch` value in such circumstances.
+AWS CodeBuild doesn't provide an environment variable to determine the current
+Git branch being built. In addition, it clones the repository in a
+[detached head state](https://git-scm.com/docs/git-checkout#_detached_head) so
+the branch cannot be determined with `git rev-parse --abbrev-ref HEAD`. To work
+around this limitation, `env-ci` look for the remote branches having the same
+`HEAD` as the local detached `HEAD` to determine the branch from which the
+detached `HEAD` was created. In the rare case where there is multiple remote
+branches with the same `HEAD` as the local detached `HEAD`, `env-ci` will
+arbitrarily pick the first one. This can lead to an inaccurate `branch` value in
+such circumstances.
 
 ### Buddy
 
-For builds triggered when [a Pull Request is opened/updated](https://buddy.works/knowledge/deployments/pull-requests), Buddy doesn't provide an environment variable indicating the branch from which the Pull Request originated nor the target branch. It also build from a branch named `pull/<PR number>` so the target branch cannot be determined with a `git` command.
-Therefore in the case of Pull Request builds, `env-ci` will not be able to determine the `branch` and `prBranch` properties.
+For builds triggered when
+[a Pull Request is opened/updated](https://buddy.works/knowledge/deployments/pull-requests),
+Buddy doesn't provide an environment variable indicating the branch from which
+the Pull Request originated nor the target branch. It also build from a branch
+named `pull/<PR number>` so the target branch cannot be determined with a `git`
+command. Therefore in the case of Pull Request builds, `env-ci` will not be able
+to determine the `branch` and `prBranch` properties.
 
-See [feature request](https://forum.buddy.works/t/determine-pull-request-branch-with-environment-variable/911).
+See
+[feature request](https://forum.buddy.works/t/determine-pull-request-branch-with-environment-variable/911).
 
 ### CircleCI
 
-For builds triggered when a Pull Request is opened/updated, CircleCI doesn't provide an environment variable indicating the target branch.
-Therefore in the case of Pull Request builds, `env-ci` will not be able to determine the `branch` property. However `prBranch` will be set.
+For builds triggered when a Pull Request is opened/updated, CircleCI doesn't
+provide an environment variable indicating the target branch. Therefore in the
+case of Pull Request builds, `env-ci` will not be able to determine the `branch`
+property. However `prBranch` will be set.
 
-See [feature request](https://discuss.circleci.com/t/create-a-circle-target-branch-envar/10022).
+See
+[feature request](https://discuss.circleci.com/t/create-a-circle-target-branch-envar/10022).
 
 ## Jenkins
 
-Triggering build when a Pull Request is opened/updated is supported only via the [ghprb-plugin](https://github.com/jenkinsci/ghprb-plugin) and [gitlab-plugin](https://github.com/jenkinsci/gitlab-plugin). Therefore `env-ci` will set `isPr`, `pr` and `prBranch` and define `branch` with the Pull Request target branch only if one those plugin is used.
+Triggering build when a Pull Request is opened/updated is supported only via the
+[ghprb-plugin](https://github.com/jenkinsci/ghprb-plugin) and
+[gitlab-plugin](https://github.com/jenkinsci/gitlab-plugin). Therefore `env-ci`
+will set `isPr`, `pr` and `prBranch` and define `branch` with the Pull Request
+target branch only if one those plugin is used.
 
 ## Sail
 
-For builds triggered when a Pull Request is opened/updated, Sail doesn't provide an environment variable indicating the target branch, and the one for the current branch is set to `pull/<PR number>` independently of the the branch name from which the Pull Request originated.
-Therefore in the case of Pull Request builds, `env-ci` will not be able to determine the `branch` and `prBranch` properties.
+For builds triggered when a Pull Request is opened/updated, Sail doesn't provide
+an environment variable indicating the target branch, and the one for the
+current branch is set to `pull/<PR number>` independently of the the branch name
+from which the Pull Request originated. Therefore in the case of Pull Request
+builds, `env-ci` will not be able to determine the `branch` and `prBranch`
+properties.
 
 ## Semaphore
 
-For builds triggered when a Pull Request is opened/updated, Semaphore doesn't provide an environment variable indicating the target branch.
-Therefore in the case of Pull Request builds, `env-ci` will not be able to determine the `branch` property. However `prBranch` will be set.
+For builds triggered when a Pull Request is opened/updated, Semaphore doesn't
+provide an environment variable indicating the target branch. Therefore in the
+case of Pull Request builds, `env-ci` will not be able to determine the `branch`
+property. However `prBranch` will be set.
 
 ### Credits
 
@@ -162,4 +197,5 @@ Therefore in the case of Pull Request builds, `env-ci` will not be able to deter
 
 ### License
 
-deno-change-case is released under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.
+deno-change-case is released under the MIT License. See the bundled
+[LICENSE](./LICENSE) file for details.

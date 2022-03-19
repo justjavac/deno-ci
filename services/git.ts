@@ -1,4 +1,4 @@
-import { head, branch } from "../utils/git.ts";
+import { branch, head } from "../utils/git.ts";
 import IDetectProvider from "../detectProvider.ts";
 
 // FIXME

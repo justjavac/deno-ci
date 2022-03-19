@@ -1,4 +1,4 @@
-import { head, branch } from "../utils/git.ts";
+import { branch, head } from "../utils/git.ts";
 import IDetectProvider from "../detectProvider.ts";
 
 // https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html

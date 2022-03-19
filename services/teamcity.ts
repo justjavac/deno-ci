@@ -14,7 +14,7 @@ const PROPERTIES_MAPPING = {
 function safeReadProperties(filePath: string) {
   try {
     return javaProperties.of(filePath);
-  } catch (error) {
+  } catch () {
     return undefined;
   }
 }

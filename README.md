@@ -2,9 +2,9 @@
 
 > Get details about the current Continuous Integration environment.
 
-[![tag](https://img.shields.io/github/release/denomod/deno-ci)](https://github.com/denomod/deno-ci/releases)
-[![Build Status](https://github.com/denomod/deno-ci/workflows/ci/badge.svg?branch=master)](https://github.com/denomod/deno-ci/actions)
-[![license](https://img.shields.io/github/license/denomod/deno-ci)](https://github.com/denomod/deno-ci/blob/master/LICENSE)
+[![tag](https://img.shields.io/github/release/justjavac/deno-ci)](https://github.com/justjavac/deno-ci/releases)
+[![ci](https://github.com/justjavac/deno-ci/actions/workflows/ci.yml/badge.svg)](https://github.com/justjavac/deno-ci/actions/workflows/ci.yml)
+[![license](https://img.shields.io/github/license/justjavac/deno-ci)](https://github.com/justjavac/deno-ci/blob/main/LICENSE)
 
 Source code based on:
 
@@ -197,5 +197,4 @@ property. However `prBranch` will be set.
 
 ### License
 
-deno-change-case is released under the MIT License. See the bundled
-[LICENSE](./LICENSE) file for details.
+deno-ci is released under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.

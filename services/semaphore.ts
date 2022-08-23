@@ -8,7 +8,8 @@ const semaphoreProvider: IDetectProvider = {
     return Boolean(env.SEMAPHORE);
   },
 
-  configuration(env, cwd) {
+  // deno-lint-ignore require-await
+  async configuration(env, cwd) {
     const pr = env.PULL_REQUEST_NUMBER;
     const isPr = Boolean(pr);
 

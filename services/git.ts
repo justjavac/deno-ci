@@ -7,12 +7,12 @@ const gitProvider: IDetectProvider = {
     return Boolean(env.CI);
   },
 
-  configuration(env, cwd) {
+  async configuration(env, cwd) {
     return {
       name: "unknown",
       service: "unknown",
-      // commit: head(env, cwd),
-      // branch: branch(env, cwd)
+      commit: await head(env, cwd),
+      branch: await branch(env, cwd)
     };
   },
 };

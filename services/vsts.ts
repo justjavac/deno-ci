@@ -7,7 +7,8 @@ const vstsProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.BUILD_BUILDURI);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.SYSTEM_PULLREQUEST_PULLREQUESTID;
     const isPr = Boolean(pr);
 

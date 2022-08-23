@@ -6,7 +6,8 @@ const gitlabProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.GITLAB_CI);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     return {
       name: "GitLab CI/CD",
       service: "gitlab",

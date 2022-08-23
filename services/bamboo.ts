@@ -7,7 +7,8 @@ const bambooProvider: IDetectProvider = {
     return Boolean(env.bamboo_agentId);
   },
 
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     return {
       name: "Bamboo",
       service: "bamboo",

@@ -8,7 +8,8 @@ const cirrusProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.CIRRUS_CI);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.CIRRUS_PR;
     const isPr = Boolean(pr);
 

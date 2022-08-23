@@ -1,8 +1,12 @@
 // https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#environment-variables
 
-import { readJsonSync } from "https://deno.land/std/fs/read_json.ts";
-
 import IDetectProvider from "../detectProvider.ts";
+
+function readJsonSync(path: string) {
+  const decoder = new TextDecoder("utf-8");
+  const content = decoder.decode(Deno.readFileSync(path));
+  return JSON.parse(content);
+}
 
 function parseBranch(branch: string): string {
   return (/refs\/heads\/(.*)/i.exec(branch) || [])[1];
@@ -47,7 +51,8 @@ const githubProvider: IDetectProvider = {
     return Boolean(env.GITHUB_ACTION);
   },
 
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const isPr = env.GITHUB_EVENT_NAME === "pull_request";
     const branch = parseBranch(env.GITHUB_REF);
 

@@ -6,7 +6,8 @@ const droneProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.DRONE);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const isPr = env.DRONE_BUILD_EVENT === "pull_request";
 
     return {

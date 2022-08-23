@@ -6,7 +6,8 @@ const codefreshProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.CF_BUILD_ID);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.CF_PULL_REQUEST_NUMBER;
     const isPr = Boolean(pr);
 

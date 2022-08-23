@@ -55,7 +55,8 @@ const teamcityProvider: IDetectProvider = {
     return Boolean(env.TEAMCITY_VERSION);
   },
 
-  configuration(env, cwd) {
+  // deno-lint-ignore require-await
+  async configuration(env, cwd) {
     return {
       name: "TeamCity",
       service: "teamcity",

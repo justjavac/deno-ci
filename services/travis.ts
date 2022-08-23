@@ -6,7 +6,8 @@ const travisProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.TRAVIS);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.TRAVIS_PULL_REQUEST === "false"
       ? undefined
       : env.TRAVIS_PULL_REQUEST;

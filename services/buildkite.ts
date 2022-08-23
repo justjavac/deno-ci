@@ -6,7 +6,8 @@ const buildkiteProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.BUILDKITE);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.BUILDKITE_PULL_REQUEST === "false"
       ? undefined
       : env.BUILDKITE_PULL_REQUEST;

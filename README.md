@@ -15,7 +15,7 @@ Source code based on:
 ## Usage
 
 ```ts
-import ci from "https://deno.land/x/ci/mod.ts";
+import * as ci from "https://deno.land/x/ci/mod.ts";
 
 if (ci.isCI) {
   console.log(`Building repo ${ci.slug} on ${ci.name} service`);

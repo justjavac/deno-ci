@@ -1,3 +1,9 @@
+/**
+ * Get details about the current Continuous Integration environment.
+ *
+ * @module
+ */
+
 import appveyor from "./services/appveyor.ts";
 import bamboo from "./services/bamboo.ts";
 import bitbucket from "./services/bitbucket.ts";
@@ -68,7 +74,52 @@ if (isCI == null) {
   info = await git.configuration(envs, cwd());
 }
 
-export default {
+const {
+  name,
+  service,
+  branch,
+  commit,
+  tag,
+  build,
+  buildUrl,
+  job,
+  jobUrl,
+  isPr,
+  pr,
+  prBranch,
+  slug,
+  root,
+} = info ?? {};
+
+export {
+  /** Git branch being built or targeted by a Pull Request */
+  branch,
+  /** CI service build number */
+  build,
+  /** Link to the CI service build */
+  buildUrl,
+  /** Commit sha that triggered the CI build */
+  commit,
+  /** `true` is running on a CI, `false` otherwise */
   isCI,
-  ...info,
+  /** `true` if the build has been triggered by a Pull Request, `false` otherwise */
+  isPr,
+  /** CI service job number */
+  job,
+  /** Link to the CI service job */
+  jobUrl,
+  /** CI service Commercial name (e.g. `Travis CI`, `CircleCI`, `GitLab CI/CD`) */
+  name,
+  /** Pull Request number (only for builds triggered by a Pull Request) */
+  pr,
+  /** Git branch branch from which the Pull Request originated (only for builds triggered by a Pull Request) */
+  prBranch,
+  /** The path to the directory where the repository is being built */
+  root,
+  /** Standardized CI service name (e.g. `travis`, `circleci`, `gitlab`) */
+  service,
+  /** The slug (in form: owner_name/repo_name) of the repository currently being built */
+  slug,
+  /** Git tag that triggered the CI build */
+  tag,
 };

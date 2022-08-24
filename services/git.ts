@@ -12,7 +12,7 @@ const gitProvider: IDetectProvider = {
       name: "unknown",
       service: "unknown",
       commit: await head(env, cwd),
-      branch: await branch(env, cwd)
+      branch: await branch(env, cwd),
     };
   },
 };

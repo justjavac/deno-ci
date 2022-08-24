@@ -9,10 +9,10 @@ export async function head(
       cmd: ["git", "rev-parse", "HEAD"],
       env,
       cwd,
-      stdout: "piped"
+      stdout: "piped",
     });
     const output = await process.output();
-    return decoder.decode(output).trimEnd()
+    return decoder.decode(output).trimEnd();
   } catch (error) {
     return undefined;
   }
@@ -27,7 +27,7 @@ export async function branch(
       cmd: ["git", "rev-parse", "--abbrev-ref", "HEAD"],
       env,
       cwd,
-      stdout: "piped"
+      stdout: "piped",
     });
 
     const headRef: string = decoder.decode(await process.output()).trimEnd();
@@ -37,7 +37,7 @@ export async function branch(
         cmd: ["git", "show", "-s", "--pretty=%d", "HEAD"],
         env,
         cwd,
-        stdout: "piped"
+        stdout: "piped",
       });
       const output: string = decoder.decode(await process.output());
       const branch: string | undefined = output

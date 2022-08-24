@@ -1,8 +1,8 @@
 // http://docs.shippable.com/ci/env-vars/#stdEnv
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
-const shippableProvider: IDetectProvider = {
+const shippableProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.SHIPPABLE);
   },

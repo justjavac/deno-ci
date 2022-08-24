@@ -1,8 +1,8 @@
 // https://confluence.atlassian.com/bamboo/bamboo-variables-289277087.html
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
-const bambooProvider: IDetectProvider = {
+const bambooProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.bamboo_agentId);
   },

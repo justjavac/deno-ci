@@ -1,6 +1,6 @@
 // https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#environment-variables
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
 function readJsonSync(path: string) {
   const decoder = new TextDecoder("utf-8");
@@ -46,7 +46,7 @@ function getPrEvent(env: {
   return { pr: undefined, branch: undefined };
 }
 
-const githubProvider: IDetectProvider = {
+const githubProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.GITHUB_ACTION);
   },

@@ -1,8 +1,8 @@
 // https://confluence.atlassian.com/bitbucket/environment-variables-794502608.html
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
-const bitbucketProvider: IDetectProvider = {
+const bitbucketProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.BITBUCKET_BUILD_NUMBER);
   },

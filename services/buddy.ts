@@ -1,8 +1,8 @@
 // https://buddy.works/knowledge/deployments/how-use-environment-variables#default-environment-variables
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 import prNumber from "../utils/prNumber.ts";
 
-const buddyProvider: IDetectProvider = {
+const buddyProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.BUDDY_WORKSPACE_ID);
   },

@@ -1,8 +1,8 @@
 // https://docs.travis-ci.com/user/environment-variables#default-environment-variables
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
-const travisProvider: IDetectProvider = {
+const travisProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.TRAVIS);
   },

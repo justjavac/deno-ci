@@ -4,7 +4,7 @@
 
 const javaProperties = require("java-properties");
 import { branch } from "../utils/git.ts";
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
 const PROPERTIES_MAPPING = {
   root: "teamcity.build.workingDir",
@@ -50,7 +50,7 @@ function getProperties(
   );
 }
 
-const teamcityProvider: IDetectProvider = {
+const teamcityProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.TEAMCITY_VERSION);
   },

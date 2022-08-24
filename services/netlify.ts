@@ -1,12 +1,13 @@
 // https://docs.netlify.com/configure-builds/environment-variables/
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
-const netlifyProvider: IDetectProvider = {
+const netlifyProvider: DetectProvider = {
   detect(env) {
     return env.NETLIFY === "true";
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const isPr = env.PULL_REQUEST === "true";
 
     return {

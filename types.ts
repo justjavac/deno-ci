@@ -15,7 +15,7 @@ export type Info = {
   root?: string;
 };
 
-export default interface IDetectProvider {
+export interface DetectProvider {
   detect(env: { [index: string]: string }, cwd?: string): boolean;
   configuration(env: { [index: string]: string }, cwd?: string): Promise<Info>;
 }

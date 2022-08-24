@@ -1,8 +1,8 @@
 // https://documentation.codeship.com/basic/builds-and-configuration/set-environment-variables/#default-environment-variables
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
-const codeshipProvider: IDetectProvider = {
+const codeshipProvider: DetectProvider = {
   detect(env): boolean {
     return env.CI_NAME != null && env.CI_NAME === "codeship";
   },

@@ -1,10 +1,10 @@
 // https://cirrus-ci.org/guide/writing-tasks/#environment-variables
 
-import IDetectProvider from "../types.ts";
+import type { DetectProvider } from "../types.ts";
 
 const CIRRUS_CI_DASHBOARD = "https://cirrus-ci.com";
 
-const cirrusProvider: IDetectProvider = {
+const cirrusProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.CIRRUS_CI);
   },

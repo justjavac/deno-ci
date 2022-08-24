@@ -22,11 +22,11 @@ import vsts from "./services/vsts.ts";
 import wercker from "./services/wercker.ts";
 import git from "./services/git.ts";
 
-import IDetectProvider, { Info } from "./types.ts";
+import type { DetectProvider, Info } from "./types.ts";
 
 const { env, cwd } = Deno;
 
-const services: { [index: string]: IDetectProvider } = {
+const services: { [index: string]: DetectProvider } = {
   appveyor,
   bamboo,
   bitbucket,

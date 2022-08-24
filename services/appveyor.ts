@@ -7,7 +7,8 @@ const appveyorProvider: IDetectProvider = {
     return Boolean(env.APPVEYOR);
   },
 
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr: string = env.APPVEYOR_PULL_REQUEST_NUMBER;
     const isPr: boolean = Boolean(pr);
 

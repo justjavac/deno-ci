@@ -6,7 +6,8 @@ const bitbucketProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.BITBUCKET_BUILD_NUMBER);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     return {
       name: "Bitbucket Pipelines",
       service: "bitbucket",

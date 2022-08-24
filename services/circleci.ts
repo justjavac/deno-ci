@@ -7,7 +7,8 @@ const circleciProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.CIRCLECI);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.CIRCLE_PR_NUMBER ||
       prNumber(env.CIRCLE_PULL_REQUEST || env.CI_PULL_REQUEST);
     const isPr = Boolean(pr);

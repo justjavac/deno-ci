@@ -51,7 +51,8 @@ const githubProvider: IDetectProvider = {
     return Boolean(env.GITHUB_ACTION);
   },
 
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const isPr = env.GITHUB_EVENT_NAME === "pull_request";
     const branch = parseBranch(env.GITHUB_REF);
 

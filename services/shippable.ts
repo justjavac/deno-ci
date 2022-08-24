@@ -6,7 +6,8 @@ const shippableProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.SHIPPABLE);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.IS_PULL_REQUEST === "true" ? env.PULL_REQUEST : undefined;
     const isPr = Boolean(pr);
 

@@ -6,7 +6,8 @@ const sailProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.SAILCI);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr = env.SAIL_PULL_REQUEST_NUMBER;
     const isPr = Boolean(pr);
 

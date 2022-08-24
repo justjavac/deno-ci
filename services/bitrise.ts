@@ -7,7 +7,8 @@ const bitriseProvider: IDetectProvider = {
     return Boolean(env.BITRISE_IO);
   },
 
-  configuration(env: { [index: string]: string }) {
+  // deno-lint-ignore require-await
+  async configuration(env: { [index: string]: string }) {
     const pr = env.BITRISE_PULL_REQUEST === "false"
       ? undefined
       : env.BITRISE_PULL_REQUEST;

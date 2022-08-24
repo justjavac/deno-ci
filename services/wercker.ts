@@ -6,7 +6,8 @@ const werckerProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.WERCKER_MAIN_PIPELINE_STARTED);
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     return {
       name: "Wercker",
       service: "wercker",

@@ -8,7 +8,8 @@ const codebuildProvider: IDetectProvider = {
     return Boolean(env.CODEBUILD_BUILD_ID);
   },
 
-  configuration(env, cwd) {
+  // deno-lint-ignore require-await
+  async configuration(env, cwd) {
     return {
       name: "AWS CodeBuild",
       service: "codebuild",

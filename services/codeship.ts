@@ -6,7 +6,8 @@ const codeshipProvider: IDetectProvider = {
   detect(env): boolean {
     return env.CI_NAME != null && env.CI_NAME === "codeship";
   },
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     return {
       name: "Codeship",
       service: "codeship",

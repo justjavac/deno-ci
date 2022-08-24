@@ -58,14 +58,14 @@ let envs = env.toObject();
 for (const name of Object.keys(services)) {
   if (services[name].detect(envs, cwd())) {
     isCI = true;
-    info = services[name].configuration(envs, cwd());
+    info = await services[name].configuration(envs, cwd());
     break;
   }
 }
 
 if (isCI == null) {
   isCI = git.detect(envs);
-  info = git.configuration(envs, cwd());
+  info = await git.configuration(envs, cwd());
 }
 
 export default {

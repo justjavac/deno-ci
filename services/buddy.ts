@@ -7,7 +7,8 @@ const buddyProvider: IDetectProvider = {
     return Boolean(env.BUDDY_WORKSPACE_ID);
   },
 
-  configuration(env) {
+  // deno-lint-ignore require-await
+  async configuration(env) {
     const pr: string = prNumber(env.BUDDY_EXECUTION_PULL_REQUEST_ID);
     const isPr: boolean = Boolean(pr);
 

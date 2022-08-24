@@ -12,7 +12,7 @@ const bitriseProvider: IDetectProvider = {
     const pr = env.BITRISE_PULL_REQUEST === "false"
       ? undefined
       : env.BITRISE_PULL_REQUEST;
-    const isPr: boolean = Boolean(pr);
+    const isPr = Boolean(pr);
 
     return {
       name: "Bitrise",

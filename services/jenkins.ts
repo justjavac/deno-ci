@@ -7,7 +7,7 @@ const jenkinsProvider: IDetectProvider = {
   detect(env) {
     return Boolean(env.JENKINS_URL);
   },
-  // deno-lint-ignore require-await
+
   async configuration(env, cwd) {
     const pr = env.ghprbPullId || env.gitlabMergeRequestId || env.CHANGE_ID;
     const isPr = Boolean(pr);
@@ -19,8 +19,7 @@ const jenkinsProvider: IDetectProvider = {
     return {
       name: "Jenkins",
       service: "jenkins",
-      // commit: env.ghprbActualCommit || env.GIT_COMMIT || head(env, cwd),
-      commit: env.ghprbActualCommit || env.GIT_COMMIT, // TODO
+      commit: env.ghprbActualCommit || env.GIT_COMMIT || await head(env, cwd),
       branch: isPr
         ? env.ghprbTargetBranch || env.gitlabTargetBranch
         : localBranch,

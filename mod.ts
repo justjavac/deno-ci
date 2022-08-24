@@ -53,7 +53,7 @@ const services: { [index: string]: IDetectProvider } = {
 
 let isCI: boolean | null = null;
 let info: Info | null = null;
-let envs = env.toObject();
+const envs = env.toObject();
 
 for (const name of Object.keys(services)) {
   if (services[name].detect(envs, cwd())) {

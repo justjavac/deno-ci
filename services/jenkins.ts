@@ -1,9 +1,9 @@
-import IDetectProvider from "../detectProvider.ts";
+import type { DetectProvider } from "../types.ts";
 import { head } from "../utils/git.ts";
 
 // https://wiki.jenkins.io/display/JENKINS/Building+a+software+project
 
-const jenkinsProvider: IDetectProvider = {
+const jenkinsProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.JENKINS_URL);
   },

@@ -1,8 +1,8 @@
 // https://codefresh.io/docs/docs/codefresh-yaml/variables#system-provided-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import type { DetectProvider } from "../types.ts";
 
-const codefreshProvider: IDetectProvider = {
+const codefreshProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.CF_BUILD_ID);
   },

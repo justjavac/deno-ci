@@ -1,8 +1,8 @@
 import { branch, head } from "../utils/git.ts";
-import IDetectProvider from "../detectProvider.ts";
+import type { DetectProvider } from "../types.ts";
 
 // FIXME
-const gitProvider: IDetectProvider = {
+const gitProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.CI);
   },

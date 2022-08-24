@@ -1,9 +1,9 @@
 import { head } from "../utils/git.ts";
-import IDetectProvider from "../detectProvider.ts";
+import type { DetectProvider } from "../types.ts";
 
 // https://semaphoreci.com/docs/available-environment-variables.html
 
-const semaphoreProvider: IDetectProvider = {
+const semaphoreProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.SEMAPHORE);
   },

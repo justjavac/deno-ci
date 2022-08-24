@@ -1,9 +1,9 @@
 // https://docs.microsoft.com/en-us/vsts/pipelines/build/variables
 // The docs indicate that SYSTEM_PULLREQUEST_SOURCEBRANCH and SYSTEM_PULLREQUEST_TARGETBRANCH are in the long format (e.g `refs/heads/master`) however tests show they are both in the short format (e.g. `master`)
 
-import IDetectProvider from "../detectProvider.ts";
+import type { DetectProvider } from "../types.ts";
 
-const vstsProvider: IDetectProvider = {
+const vstsProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.BUILD_BUILDURI);
   },

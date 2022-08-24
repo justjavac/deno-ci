@@ -1,8 +1,8 @@
 // https://docs.gitlab.com/ce/ci/variables/README.html
 
-import IDetectProvider from "../detectProvider.ts";
+import type { DetectProvider } from "../types.ts";
 
-const gitlabProvider: IDetectProvider = {
+const gitlabProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.GITLAB_CI);
   },

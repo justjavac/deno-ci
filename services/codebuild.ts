@@ -1,9 +1,9 @@
 import { branch, head } from "../utils/git.ts";
-import IDetectProvider from "../detectProvider.ts";
+import type { DetectProvider } from "../types.ts";
 
 // https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 
-const codebuildProvider: IDetectProvider = {
+const codebuildProvider: DetectProvider = {
   detect(env) {
     return Boolean(env.CODEBUILD_BUILD_ID);
   },

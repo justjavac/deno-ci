@@ -1,5 +1,5 @@
 import { branch, head } from "../utils/git.ts";
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 // https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html
 

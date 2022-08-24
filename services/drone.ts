@@ -1,6 +1,6 @@
 // https://readme.drone.io/reference/environ
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const droneProvider: IDetectProvider = {
   detect(env) {

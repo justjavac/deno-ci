@@ -1,6 +1,6 @@
 // https://cirrus-ci.org/guide/writing-tasks/#environment-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const CIRRUS_CI_DASHBOARD = "https://cirrus-ci.com";
 

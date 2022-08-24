@@ -1,6 +1,6 @@
 // https://buildkite.com/docs/builds/environment-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const buildkiteProvider: IDetectProvider = {
   detect(env) {

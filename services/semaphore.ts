@@ -1,5 +1,5 @@
 import { head } from "../utils/git.ts";
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 // https://semaphoreci.com/docs/available-environment-variables.html
 

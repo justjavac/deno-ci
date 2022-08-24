@@ -1,6 +1,6 @@
 // https://sail.ci/docs/environment-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const sailProvider: IDetectProvider = {
   detect(env) {

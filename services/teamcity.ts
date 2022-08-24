@@ -4,7 +4,7 @@
 
 const javaProperties = require("java-properties");
 import { branch } from "../utils/git.ts";
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const PROPERTIES_MAPPING = {
   root: "teamcity.build.workingDir",

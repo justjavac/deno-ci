@@ -1,6 +1,6 @@
 // https://www.appveyor.com/docs/environment-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const appveyorProvider: IDetectProvider = {
   detect(env) {

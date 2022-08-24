@@ -1,6 +1,6 @@
 // https://circleci.com/docs/2.0/env-vars/#built-in-environment-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 import prNumber from "../utils/prNumber.ts";
 
 const circleciProvider: IDetectProvider = {

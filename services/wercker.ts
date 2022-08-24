@@ -1,6 +1,6 @@
 // http://devcenter.wercker.com/docs/environment-variables/available-env-vars#hs_cos_wrapper_name
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const werckerProvider: IDetectProvider = {
   detect(env) {

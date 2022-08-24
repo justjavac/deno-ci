@@ -1,6 +1,6 @@
 // https://devcenter.bitrise.io/builds/available-environment-variables/#exposed-by-bitriseio
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const bitriseProvider: IDetectProvider = {
   detect(env: { [index: string]: string }) {

@@ -1,6 +1,6 @@
 // https://docs.netlify.com/configure-builds/environment-variables/
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const netlifyProvider: IDetectProvider = {
   detect(env) {

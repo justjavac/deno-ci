@@ -1,5 +1,5 @@
 import { branch, head } from "../utils/git.ts";
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 // FIXME
 const gitProvider: IDetectProvider = {

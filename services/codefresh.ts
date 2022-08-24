@@ -1,6 +1,6 @@
 // https://codefresh.io/docs/docs/codefresh-yaml/variables#system-provided-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 const codefreshProvider: IDetectProvider = {
   detect(env) {

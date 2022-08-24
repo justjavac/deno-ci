@@ -1,6 +1,6 @@
 // https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#environment-variables
 
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 
 function readJsonSync(path: string) {
   const decoder = new TextDecoder("utf-8");

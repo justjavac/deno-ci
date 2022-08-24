@@ -1,5 +1,5 @@
 // https://buddy.works/knowledge/deployments/how-use-environment-variables#default-environment-variables
-import IDetectProvider from "../detectProvider.ts";
+import IDetectProvider from "../types.ts";
 import prNumber from "../utils/prNumber.ts";
 
 const buddyProvider: IDetectProvider = {

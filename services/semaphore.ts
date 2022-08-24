@@ -8,7 +8,6 @@ const semaphoreProvider: IDetectProvider = {
     return Boolean(env.SEMAPHORE);
   },
 
-  // deno-lint-ignore require-await
   async configuration(env, cwd) {
     const pr = env.PULL_REQUEST_NUMBER;
     const isPr = Boolean(pr);
@@ -16,7 +15,7 @@ const semaphoreProvider: IDetectProvider = {
     return {
       name: "Semaphore",
       service: "semaphore",
-      // commit: head(env, cwd), // TODO
+      commit: await head(env, cwd), // TODO
       build: env.SEMAPHORE_BUILD_NUMBER,
       branch: isPr ? undefined : env.BRANCH_NAME,
       pr,

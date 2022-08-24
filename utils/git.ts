@@ -13,7 +13,7 @@ export async function head(
     });
     const output = await process.output();
     return decoder.decode(output).trimEnd();
-  } catch (error) {
+  } catch {
     return undefined;
   }
 }
@@ -49,7 +49,7 @@ export async function branch(
     }
 
     return headRef;
-  } catch (error) {
+  } catch {
     return undefined;
   }
 }

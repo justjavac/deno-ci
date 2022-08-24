@@ -10,7 +10,7 @@ const buddyProvider: IDetectProvider = {
   // deno-lint-ignore require-await
   async configuration(env) {
     const pr: string = prNumber(env.BUDDY_EXECUTION_PULL_REQUEST_ID);
-    const isPr: boolean = Boolean(pr);
+    const isPr = Boolean(pr);
 
     return {
       name: "Buddy",
